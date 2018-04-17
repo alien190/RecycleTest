@@ -1,5 +1,6 @@
 package com.example.ivanovnv.recycletest;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -30,6 +31,15 @@ public class RecycleFragment extends Fragment implements SwipeRefreshLayout.OnRe
     private final ContactsAdapter mContactsAdapter = new ContactsAdapter();
     private View mErrorView;
     private Random mRandom = new Random();
+    private ContactsAdapter.OnItemClickListener mListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ContactsAdapter.OnItemClickListener) {
+            mListener = (ContactsAdapter.OnItemClickListener) context;
+        }
+    }
 
     public static RecycleFragment newInstance() {
         return new RecycleFragment();
@@ -54,6 +64,7 @@ public class RecycleFragment extends Fragment implements SwipeRefreshLayout.OnRe
         super.onActivityCreated(savedInstanceState);
         mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycler.setAdapter(mContactsAdapter);
+        mContactsAdapter.setListener(mListener);
 
     }
 
@@ -109,9 +120,14 @@ public class RecycleFragment extends Fragment implements SwipeRefreshLayout.OnRe
         }
     }
 
-
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
+    }
+
+    @Override
+    public void onDetach() {
+        mListener = null;
+        super.onDetach();
     }
 }
