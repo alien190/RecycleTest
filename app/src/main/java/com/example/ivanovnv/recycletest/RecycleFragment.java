@@ -109,6 +109,7 @@ public class RecycleFragment extends Fragment implements SwipeRefreshLayout.OnRe
         }
     }
 
+
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
