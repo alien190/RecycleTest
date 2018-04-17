@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:padding="8dp"
     android:layout_height="wrap_content">
 
 
@@ -13,7 +12,8 @@
     android:textColor="@color/colorAccent"
     android:textStyle="bold"
     android:layout_width="match_parent"
-    android:layout_marginBottom="4dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
     android:layout_height="wrap_content" />
 
 
@@ -21,6 +21,13 @@
         android:id="@+id/tv_value"
         tools:text="12342"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#444"/>
 </LinearLayout>
