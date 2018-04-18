@@ -10,6 +10,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -64,6 +65,8 @@ public class RecycleFragment extends Fragment implements SwipeRefreshLayout.OnRe
         super.onActivityCreated(savedInstanceState);
         mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycler.setAdapter(mContactsAdapter);
+        mRecycler.addItemDecoration(new CardDecoration());
+        mRecycler.addItemDecoration(new DividerItemDecoration());
         mContactsAdapter.setListener(mListener);
 
     }
